@@ -31,16 +31,18 @@ class Animal {
 
 const abrigo = new Abrigo();
 
-abrigo.adicionarAnimal(new Animal("Rex", "cão", "RATO, BOLA" ));
-abrigo.adicionarAnimal(new Animal("Mimi", "gato", "BOLA, LASER" ));
-abrigo.adicionarAnimal(new Animal("Fofo", "gato", "BOLA, RATO, LASER" ));
-abrigo.adicionarAnimal(new Animal("Zero", "gato", "RATO, BOLA" ));
-abrigo.adicionarAnimal(new Animal("Bola", "cão", "CAIXA, NOVELO" ));
-abrigo.adicionarAnimal(new Animal("Bebe", "cão", "LASER, RATO, BOLA" ));
-abrigo.adicionarAnimal(new Animal("Loco", "jabuti", "SKATE, RATO" ));
+abrigo.adicionarAnimal(new Animal("Rex", "cão", "RATO,BOLA" ));
+abrigo.adicionarAnimal(new Animal("Mimi", "gato", "BOLA,LASER" ));
+abrigo.adicionarAnimal(new Animal("Fofo", "gato", "BOLA,RATO,LASER" ));
+abrigo.adicionarAnimal(new Animal("Zero", "gato", "RATO,BOLA" ));
+abrigo.adicionarAnimal(new Animal("Bola", "cão", "CAIXA,NOVELO" ));
+abrigo.adicionarAnimal(new Animal("Bebe", "cão", "LASER,RATO, BOLA" ));
+abrigo.adicionarAnimal(new Animal("Loco", "jabuti", "SKATE,RATO" ));
 
 
 console.log(abrigo)
+
+const animal = new Animal();
 class AbrigoAnimais {
   
   encontraPessoas(brinquedosPessoa1, brinquedosPessoa2, ordemAnimais) {
@@ -53,37 +55,28 @@ class AbrigoAnimais {
       return acc;
     },[]) 
 
-    let nome;
-    let inicio = 0;
-    let index; 
+    const nomes = ordemAnimais.split(",");
 
-    const nomes = [];
+    const lista = [];
 
-    posicoes.forEach(i => {
-
-      let indexTemp = i
-      indexTemp > inicio 
-      nome = ordemAnimais.substring(inicio,indexTemp);
-      inicio = indexTemp+1
-      
-      nomes.push(nome)
-      
-      index = ordemAnimais.length+1
-      nome = ordemAnimais.substring(inicio,index)
-
-      nomes.push(nome)
-    })
-
-    console.log(nomes)
-
-    for (let i= 0; i <= nomes.length; i++) {
-      abrigo.getAnimais().forEach(animal=> {
-      if(brinquedosPessoa1 == animal.getBrinquedos() && nomes[i] == animal.getNome()) {
-        console.log("funcionou")
+    for (const nome of nomes) {
+      for(const animal of abrigo.getAnimais()) {
+        if (brinquedosPessoa1 === animal.getBrinquedos() && nome === animal.getNome()){
+          lista.push(`${nome} - Pessoa 1`)
+          break
+        } else if (brinquedosPessoa2 === animal.getBrinquedos() && nome === animal.getNome()) {
+          lista.push(`${nome} - Pessoa 2`)
+          break
+        } else {
+          lista.push(`${nome} - abrigo`)
+          break
+        }
+      }
     }
-    });
-    }
+    lista.sort()
 
+  console.log(lista)
+  console.log(nomes.length)
  
   }
 
