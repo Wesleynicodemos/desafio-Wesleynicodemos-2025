@@ -39,21 +39,9 @@ abrigo.adicionarAnimal(new Animal("Bola", "cão", "CAIXA,NOVELO" ));
 abrigo.adicionarAnimal(new Animal("Bebe", "cão", "LASER,RATO, BOLA" ));
 abrigo.adicionarAnimal(new Animal("Loco", "jabuti", "SKATE,RATO" ));
 
-
-console.log(abrigo)
-
-const animal = new Animal();
 class AbrigoAnimais {
   
   encontraPessoas(brinquedosPessoa1, brinquedosPessoa2, ordemAnimais) {
-    const posicoes = ordemAnimais.split("").reduce((acc,c,i) => {
-      if (c === ",") {
-
-        acc.push(i);
-
-      }
-      return acc;
-    },[]) 
 
     const nomes = ordemAnimais.split(",");
 
@@ -74,13 +62,8 @@ class AbrigoAnimais {
       }
     }
     lista.sort()
-
-  console.log(lista)
-  console.log(nomes.length)
  
   }
-
-  
 
 }
 new AbrigoAnimais().encontraPessoas(
