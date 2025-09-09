@@ -31,21 +31,21 @@ class Animal {
 
 const abrigo = new Abrigo();
 
-abrigo.adicionarAnimal(new Animal("Rex", "cão", "RATO,BOLA" ));
-abrigo.adicionarAnimal(new Animal("Mimi", "gato", "BOLA,LASER" ));
-abrigo.adicionarAnimal(new Animal("Fofo", "gato", "BOLA,RATO,LASER" ));
-abrigo.adicionarAnimal(new Animal("Zero", "gato", "RATO,BOLA" ));
-abrigo.adicionarAnimal(new Animal("Bola", "cão", "CAIXA,NOVELO" ));
-abrigo.adicionarAnimal(new Animal("Bebe", "cão", "LASER,RATO, BOLA" ));
-abrigo.adicionarAnimal(new Animal("Loco", "jabuti", "SKATE,RATO" ));
+abrigo.adicionarAnimal(new Animal("Rex", "cão", ["RATO","BOLA"] ));
+abrigo.adicionarAnimal(new Animal("Mimi", "gato", ["BOLA","LASER"] ));
+abrigo.adicionarAnimal(new Animal("Fofo", "gato", ["BOLA","RATO","LASER"] ));
+abrigo.adicionarAnimal(new Animal("Zero", "gato", ["RATO","BOLA"] ));
+abrigo.adicionarAnimal(new Animal("Bola", "cão", ["CAIXA","NOVELO"] ));
+abrigo.adicionarAnimal(new Animal("Bebe", "cão", ["LASER","RATO","BOLA"] ));
+abrigo.adicionarAnimal(new Animal("Loco", "jabuti", ["SKATE","RATO"] ));
 
 class AbrigoAnimais {
   
   encontraPessoas(brinquedosPessoa1, brinquedosPessoa2, ordemAnimais) {
+    
+    const lista = [];
 
     const nomes = ordemAnimais.split(",");
-
-    const lista = [];
 
     for (const nome of nomes) {
       for(const animal of abrigo.getAnimais()) {
